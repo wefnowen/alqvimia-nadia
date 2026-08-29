@@ -1,0 +1,19 @@
+/* ============ PROFESIONALES ============ */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.team-card{background:var(--white);border:1px solid var(--line-soft);border-radius:18px;padding:30px 26px;text-align:left;transition:transform .4s var(--ease),box-shadow .4s}
+.team-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-2)}
+.team-avatar{width:58px;height:58px;border-radius:999px;background:linear-gradient(135deg,var(--gold-light),var(--gold));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.25rem;color:#fff;margin-bottom:18px}
+.team-card h3{font-size:1.08rem;margin-bottom:4px}
+.team-card .role-tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-deep);font-weight:600;margin-bottom:14px;display:block}
+.team-card .center-tag{font-size:.74rem;color:var(--ink-faint);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.team-card .center-tag::before{content:'';width:6px;height:6px;border-radius:99px;background:var(--ink-faint)}
+.team-card p{font-size:.87rem;color:var(--ink-soft);line-height:1.65}
+.team-note{margin-top:34px;font-size:.82rem;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:20px;text-align:center}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .team-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .team-grid{grid-template-columns:1fr}
+}

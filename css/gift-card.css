@@ -1,0 +1,50 @@
+/* ============ TARJETA REGALO ============ */
+.gift-wrap{max-width:760px;margin-inline:auto;background:var(--white);border-radius:24px;box-shadow:var(--shadow-2);padding:clamp(28px,5vw,56px);position:relative;overflow:hidden}
+.gift-progress{display:flex;gap:6px;margin-bottom:34px}
+.gift-progress i{flex:1;height:3px;border-radius:99px;background:var(--line)}
+.gift-progress i.done{background:var(--gold-deep)}
+.gift-step{display:none}
+.gift-step.active{display:block;animation:pagein .45s var(--ease)}
+.gift-step .q-num{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:10px}
+.gift-step h3{font-size:1.35rem;margin-bottom:26px}
+.gift-step .q-options{margin-bottom:8px}
+
+.gift-intro-list{display:grid;gap:14px;margin-bottom:30px}
+.gift-intro-list li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;color:var(--ink-soft)}
+.gift-intro-list li::before{content:'✦';color:var(--gold);flex:none;margin-top:2px;font-size:.8rem}
+
+.gift-treatment-price{margin-left:auto;font-family:var(--serif);color:var(--gold-deep);font-weight:500;white-space:nowrap}
+
+.gift-amount-field{margin-top:16px}
+.gift-amount-field label{font-size:.85rem;color:var(--ink-soft);font-weight:500;display:block;margin-bottom:8px}
+.gift-amount-field input{width:100%;border:1px solid var(--line);border-radius:10px;padding:13px 15px;font-family:inherit;font-size:1rem;background:var(--cream);color:var(--ink)}
+
+.gift-summary{border:1px solid var(--line-soft);border-radius:14px;padding:18px 20px;background:var(--cream-2);font-size:.92rem;color:var(--ink-soft);display:grid;gap:6px}
+.gift-summary strong{color:var(--ink)}
+.gift-error{color:#B4483A;font-size:.85rem;margin-top:14px;min-height:1.2em}
+
+.gift-nav{display:flex;justify-content:space-between;margin-top:32px;gap:12px}
+
+.gift-result{display:none;text-align:center}
+.gift-result.active{display:block;animation:pagein .5s var(--ease)}
+.gift-note{font-size:.85rem;color:var(--ink-faint);margin-top:18px;line-height:1.6}
+
+/* ---------- tarjeta imprimible ---------- */
+.gift-card-render{aspect-ratio:16/10;max-width:520px;margin-inline:auto;border-radius:20px;background:linear-gradient(135deg,var(--ink) 0%,#3A2F22 55%,var(--gold-deep) 130%);color:#fff;padding:clamp(24px,4vw,36px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow-2);text-align:left}
+.gift-card-render .gc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.gift-card-render .gc-brand{font-family:var(--serif);font-size:1.3rem}
+.gift-card-render .gc-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.14em;color:#D8CDBA}
+.gift-card-render .gc-value{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.2rem);margin-top:4px}
+.gift-card-render .gc-mid{margin:auto 0;padding-block:18px}
+.gift-card-render .gc-to{font-size:.8rem;color:#D8CDBA}
+.gift-card-render .gc-to strong{display:block;font-family:var(--serif);color:#fff;font-size:1.2rem;margin-top:2px}
+.gift-card-render .gc-msg{font-size:.85rem;color:#EDE3D2;font-style:italic;margin-top:10px;line-height:1.6}
+.gift-card-render .gc-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
+.gift-card-render .gc-code{font-family:var(--serif);letter-spacing:.06em;font-size:1rem}
+.gift-card-render .gc-centers{font-size:.7rem;color:#D8CDBA;text-align:right}
+
+@media print{
+  body *{visibility:hidden}
+  .gift-card-render, .gift-card-render *{visibility:visible}
+  .gift-card-render{position:fixed;inset:0;margin:auto;box-shadow:none;border-radius:0;max-width:none;width:90vw;height:auto;aspect-ratio:16/10}
+}

@@ -1,0 +1,10 @@
+/* ============ WHATSAPP FLOAT ============ */
+#wa-float{position:fixed;right:22px;bottom:22px;z-index:180;width:60px;height:60px;border-radius:99px;background:#2E4A3D;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -6px rgba(46,74,61,.55);transition:transform .35s var(--ease)}
+#wa-float:hover{transform:scale(1.08)}
+#wa-float svg{width:28px;height:28px}
+#wa-choice{position:fixed;right:22px;bottom:92px;z-index:181;background:var(--white);border-radius:16px;box-shadow:var(--shadow-2);padding:10px;display:none;flex-direction:column;gap:4px;min-width:230px}
+#wa-choice.open{display:flex}
+#wa-choice button{padding:12px 14px;border-radius:10px;text-align:left;font-size:.86rem;display:flex;flex-direction:column;gap:2px}
+#wa-choice button:hover{background:var(--cream-2)}
+#wa-choice button strong{font-size:.86rem}
+#wa-choice button span{font-size:.74rem;color:var(--ink-faint)}

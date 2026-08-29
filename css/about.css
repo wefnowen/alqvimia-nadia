@@ -1,0 +1,23 @@
+/* ---------- about / intro ---------- */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,90px);align-items:center}
+.about-photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-2);aspect-ratio:4/5}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-badge{position:absolute;left:-18px;bottom:26px;background:var(--white);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow-2);max-width:230px}
+.about-badge strong{font-family:var(--serif);font-size:1.6rem;color:var(--gold-deep);display:block}
+.about-badge span{font-size:.78rem;color:var(--ink-soft)}
+.about-copy p{margin-top:16px}
+.about-list{margin-top:28px;display:grid;gap:14px}
+.about-list li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;color:var(--ink-soft)}
+.about-list li::before{content:'✦';color:var(--gold);flex:none;margin-top:2px;font-size:.8rem}
+
+/* ---------- brand strip (usado en inicio/about y en opiniones) ---------- */
+.brand-strip{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:44px}
+.brand-pill{border:1px solid var(--line);border-radius:999px;padding:14px 26px;display:flex;align-items:center;gap:12px;background:var(--white)}
+.brand-pill strong{font-family:var(--serif);font-size:1.05rem}
+.brand-pill span{font-size:.76rem;color:var(--ink-faint)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{max-width:420px;margin-inline:auto}
+}

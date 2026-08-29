@@ -1,0 +1,17 @@
+/* ============ FOOTER ============ */
+footer{background:var(--ink);color:#D8CDBA;padding-block:56px 28px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-brand .b1{font-family:var(--serif);color:#fff;font-size:1.2rem;margin-bottom:10px;display:block}
+.foot-brand p{font-size:.85rem;line-height:1.7;max-width:32ch}
+.foot-col h5{color:#fff;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;font-weight:600}
+.foot-col a, .foot-col p{display:block;font-size:.86rem;margin-bottom:10px;color:#C9BEA9;transition:color .3s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.78rem;color:#9C917E}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media (max-width:640px){
+  .foot-grid{grid-template-columns:1fr}
+}

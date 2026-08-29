@@ -1,0 +1,26 @@
+/* ============ ASESOR DE PIEL (QUIZ) ============ */
+.quiz-wrap{max-width:760px;margin-inline:auto;background:var(--white);border-radius:24px;box-shadow:var(--shadow-2);padding:clamp(28px,5vw,56px);position:relative;overflow:hidden}
+.quiz-progress{display:flex;gap:6px;margin-bottom:34px}
+.quiz-progress i{flex:1;height:3px;border-radius:99px;background:var(--line)}
+.quiz-progress i.done{background:var(--gold-deep)}
+.quiz-step{display:none}
+.quiz-step.active{display:block;animation:pagein .45s var(--ease)}
+.quiz-step .q-num{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:10px}
+.quiz-step h3{font-size:1.35rem;margin-bottom:26px}
+.q-options{display:grid;gap:12px}
+.q-option{border:1px solid var(--line);border-radius:14px;padding:16px 20px;text-align:left;display:flex;align-items:center;gap:14px;transition:.3s var(--ease);font-size:.94rem}
+.q-option:hover{border-color:var(--gold);background:var(--cream-2)}
+.q-option.selected{border-color:var(--gold-deep);background:var(--cream-2);box-shadow:0 0 0 1px var(--gold-deep) inset}
+.q-option .radio{width:18px;height:18px;border-radius:99px;border:1px solid var(--ink-faint);flex:none;position:relative}
+.q-option.selected .radio{border-color:var(--gold-deep)}
+.q-option.selected .radio::after{content:'';position:absolute;inset:3px;border-radius:99px;background:var(--gold-deep)}
+.quiz-nav{display:flex;justify-content:space-between;margin-top:32px;gap:12px}
+.quiz-result{display:none}
+.quiz-result.active{display:block;animation:pagein .5s var(--ease)}
+.result-card{border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:16px}
+.result-card .rc-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-deep);font-weight:600;margin-bottom:8px}
+.result-card h4{font-size:1.15rem;margin-bottom:8px}
+.result-card p{font-size:.9rem;color:var(--ink-soft)}
+.result-price{font-family:var(--serif);color:var(--gold-deep);font-size:1.15rem;margin-top:10px}
+.quiz-disclaimer{font-size:.78rem;color:var(--ink-faint);margin-top:22px;text-align:center;line-height:1.6}
+.quiz-restart{display:block;margin:18px auto 0}

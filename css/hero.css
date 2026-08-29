@@ -1,0 +1,20 @@
+/* ============ INICIO — HERO ============ */
+#hero{position:relative;min-height:calc(100svh - var(--nav-h));display:flex;align-items:flex-end;overflow:hidden;border-radius:0 0 28px 28px}
+#hero .hero-bg{position:absolute;inset:0;z-index:0}
+#hero .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:58% 30%}
+#hero .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,11,.12) 0%,rgba(20,16,11,.2) 45%,rgba(18,14,10,.74) 100%)}
+#hero .hero-inner{position:relative;z-index:1;width:100%;padding-block:clamp(40px,7vw,84px)}
+#hero .hero-tag{color:#F1E7D3;margin-bottom:20px;opacity:.94}
+#hero .hero-tag::before{background:var(--gold-light)}
+#hero h1{color:#fff;max-width:15ch;margin-bottom:20px;text-wrap:balance;font-size:clamp(2.1rem,5vw,3.9rem)}
+#hero .hero-sub{color:#EDE3D2;max-width:46ch;font-weight:300;font-size:clamp(1rem,1.4vw,1.15rem);margin-bottom:32px;line-height:1.75}
+#hero .hero-ctas{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:44px}
+#hero .hero-meta{display:flex;flex-wrap:wrap;gap:clamp(22px,4vw,52px);border-top:1px solid rgba(255,255,255,.22);padding-top:24px}
+#hero .hero-meta div{color:#fff}
+#hero .hero-meta strong{font-family:var(--serif);font-size:1.4rem;display:block;font-weight:500}
+#hero .hero-meta span{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:#D8CDBA}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:640px){
+  #hero h1{max-width:none}
+}

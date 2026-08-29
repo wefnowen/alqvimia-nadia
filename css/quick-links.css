@@ -1,0 +1,19 @@
+/* ---------- quick links (inicio) ---------- */
+.quick-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.quick-card{background:var(--white);border:1px solid var(--line-soft);border-radius:16px;padding:28px 24px;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;display:flex;flex-direction:column;gap:10px;text-align:left}
+.quick-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-2);border-color:var(--gold-light)}
+.quick-card .qc-ico{width:38px;height:38px;border-radius:999px;background:var(--cream-2);display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-size:1.1rem}
+.quick-card h3{font-size:1.1rem}
+.quick-card p{font-size:.86rem;color:var(--ink-soft)}
+.quick-card .qc-arrow{margin-top:auto;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:6px}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1180px){
+  .quick-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:980px){
+  .quick-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .quick-grid{grid-template-columns:1fr}
+}

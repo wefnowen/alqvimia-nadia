@@ -1,0 +1,58 @@
+/* ============ SERVICIOS (y PRECIOS, comparte la misma estructura de tabs/acordeón) ============ */
+.center-tabs{display:flex;gap:10px;margin-bottom:44px;flex-wrap:wrap}
+.center-tab{border:1px solid var(--line);border-radius:999px;padding:13px 26px 13px 18px;display:flex;align-items:center;gap:10px;background:var(--white);transition:.35s var(--ease)}
+.center-tab .dot{width:9px;height:9px;border-radius:99px;background:var(--gold)}
+.center-tab.alq .dot{background:var(--gold)}
+.center-tab.nad .dot{background:var(--ink)}
+.center-tab strong{font-family:var(--serif);font-size:1.02rem}
+.center-tab span{font-size:.74rem;color:var(--ink-faint)}
+.center-tab.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.center-tab.active span{color:#D8CDBA}
+
+.svc-panel{display:none}
+.svc-panel.active{display:block;animation:pagein .5s var(--ease)}
+.svc-intro{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.svc-intro h2{margin-bottom:8px}
+.svc-intro .svc-contact-mini{font-size:.84rem;color:var(--ink-soft);display:flex;flex-direction:column;gap:4px;text-align:right}
+.svc-intro .svc-contact-mini a{color:var(--gold-deep);font-weight:500}
+
+.cat-accordion{display:grid;gap:14px}
+.cat{border:1px solid var(--line-soft);border-radius:14px;background:var(--white);overflow:hidden}
+.cat-head{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;gap:16px;text-align:left}
+.cat-head h4{font-size:1.08rem;font-weight:500}
+.cat-head .cat-note{font-size:.8rem;color:var(--ink-faint);font-weight:400;margin-top:3px;font-family:var(--sans)}
+.cat-head .chev{width:30px;height:30px;border-radius:999px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;transition:transform .4s var(--ease),background .3s}
+.cat.open .cat-head .chev{transform:rotate(45deg);background:var(--ink);border-color:var(--ink);color:#fff}
+.cat-body{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.cat-body-inner{padding:0 24px 22px}
+.svc-row{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line-soft)}
+.svc-row:last-child{border-bottom:none}
+.svc-row .svc-name{font-size:.94rem;color:var(--ink)}
+.svc-row .svc-dots{flex:1;border-bottom:1px dotted var(--ink-faint);opacity:.4;margin-bottom:5px}
+.svc-row .svc-price{font-family:var(--serif);color:var(--gold-deep);font-weight:500;font-size:.96rem;white-space:nowrap}
+.svc-row .svc-price.tbd{font-family:var(--sans);color:var(--sage);font-size:.78rem;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.svc-note-inline{font-size:.82rem;color:var(--ink-faint);margin:0 0 14px;font-style:italic}
+
+.svc-cta-band{margin-top:44px;border-radius:18px;background:var(--ink);color:var(--cream);padding:36px clamp(24px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.svc-cta-band h3{color:#fff;font-size:1.3rem}
+.svc-cta-band p{color:#CDC2AF;font-size:.88rem;margin-top:6px}
+.link-inline{display:inline;color:var(--gold-deep);font-weight:600;text-decoration:underline;text-underline-offset:3px;font-size:inherit}
+.link-inline:hover{color:var(--ink)}
+
+/* ---------- servicios (descripciones) ---------- */
+.svc-cat-intro{font-size:.92rem;color:var(--ink-soft);line-height:1.7;margin:-4px 0 18px}
+.svc-desc-item{padding:18px 0;border-bottom:1px dashed var(--line-soft)}
+.svc-desc-item:last-child{border-bottom:none}
+.svc-desc-item .sdi-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.svc-desc-item h5{font-family:var(--serif);font-size:1.06rem;font-weight:500;color:var(--ink)}
+.svc-desc-item .dur{font-size:.68rem;color:var(--gold-deep);font-weight:600;text-transform:uppercase;letter-spacing:.06em;background:var(--cream-2);padding:3px 9px;border-radius:99px}
+.svc-desc-item p{font-size:.9rem;color:var(--ink-soft);line-height:1.75}
+.svc-variant-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.svc-variant-tags span{font-size:.74rem;background:var(--cream-2);color:var(--ink-soft);padding:5px 12px;border-radius:99px;border:1px solid var(--line-soft)}
+.svc-more-note{font-size:.84rem;color:var(--ink-faint);font-style:italic;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line-soft)}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:640px){
+  .svc-intro{flex-direction:column;align-items:flex-start}
+  .svc-intro .svc-contact-mini{text-align:left}
+}
