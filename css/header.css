@@ -27,11 +27,13 @@
 /* ============ RESPONSIVE ============ */
 @media (max-width:980px){
   .page-tabs{display:none}
-  .burger{display:flex}
+  .burger{display:flex;background:var(--ink);border-color:var(--ink)}
+  .burger span{background:var(--cream)}
   .nav-right .btn-primary{display:none !important}
-  .brandmark .b1{font-size:1rem}
+  .brandmark{flex:1 1 auto;min-width:0}
+  .brandmark .b1{font-size:1rem;max-width:100%;overflow:hidden;text-overflow:ellipsis}
   .brandmark .b2{display:none}
-  .nav-right{gap:8px}
+  .nav-right{gap:8px;flex:none}
   .lang-toggle{font-size:.66rem}
   .lang-toggle button{padding:6px 10px}
 }
