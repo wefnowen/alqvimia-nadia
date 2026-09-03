@@ -109,7 +109,8 @@
     if(giftStep === 4){
       var name = document.getElementById('gift-buyer-name').value.trim();
       var email = document.getElementById('gift-buyer-email').value.trim();
-      return !!name && /\S+@\S+\.\S+/.test(email);
+      var recipientName = document.getElementById('gift-recipient-name').value.trim();
+      return !!name && /\S+@\S+\.\S+/.test(email) && !!recipientName;
     }
     return true;
   }
@@ -169,7 +170,7 @@
     if(giftStep > 1){ giftStep--; showGiftStep(giftStep); }
   });
 
-  ['gift-buyer-name','gift-buyer-email'].forEach(function(id){
+  ['gift-buyer-name','gift-buyer-email','gift-recipient-name'].forEach(function(id){
     document.getElementById(id).addEventListener('input', updateNextEnabled);
   });
 
