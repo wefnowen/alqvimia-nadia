@@ -261,29 +261,45 @@
     document.getElementById('gift-result-error').scrollIntoView({behavior:'smooth', block:'start'});
   }
 
+  var CENTER_INFO = {
+    alqvimia: {
+      logo: 'Alqvimia Lleida', sub: '',
+      contact: 'Carrer Vallcalent, 33 · 25006 Lleida<br>681 200 700<br>@alqvimia_lleida'
+    },
+    nadia: {
+      logo: 'Nàdia Elcacho', sub: 'Beauty &amp; Skincare Expert',
+      contact: 'Av. de Madrid, 32 · 25002 Lleida<br>623 024 012<br>@nadia_elcacho_estetica'
+    }
+  };
+
   function renderGiftCard(data){
     var lang = App.currentLang();
     document.querySelector('.gift-wrap > form').style.display = 'none';
     document.querySelector('.gift-progress').style.display = 'none';
-    var euros = (data.amountCents/100).toFixed(2).replace('.00','');
     var recipient = data.recipientName || (lang === 'ca' ? 'Per a tu' : 'Para ti');
-    var conj = lang === 'ca' ? 'i' : 'y';
+    var brand = CENTER_INFO[data.center] || CENTER_INFO.alqvimia;
+    var valePor = lang === 'ca' ? 'Val per' : 'Vale por';
     var html =
-      '<div class="gc-top">' +
-        '<span class="gc-brand">Alqvimia ' + conj + ' Nadia Elcacho</span>' +
-        '<span class="gc-kicker">' + (lang === 'ca' ? 'Targeta regal' : 'Tarjeta regalo') + '</span>' +
+      '<div class="gc-brand-block">' +
+        '<span class="gc-logo">' + brand.logo + '</span>' +
+        (brand.sub ? '<span class="gc-logo-sub">' + brand.sub + '</span>' : '') +
+        '<div class="gc-contact">' + brand.contact + '</div>' +
       '</div>' +
-      '<div class="gc-mid">' +
-        '<span class="gc-label">' + (lang === 'ca' ? 'Vàlida a' : 'Válida en') + ' ' + CENTER_LABEL[data.center] + '</span>' +
-        '<div class="gc-value">' + data.treatmentLabel + '</div>' +
-        '<div class="gc-amount">' + euros + '€</div>' +
+      '<div class="gc-vale">' +
+        '<span class="gc-vale-valid">' + (lang === 'ca' ? 'Vàlid a ' : 'Válido en ') + CENTER_LABEL[data.center] + '</span>' +
+        '<div class="gc-vale-title">' + valePor + '</div>' +
+        '<div class="gc-line"><small>' + (lang === 'ca' ? 'Tractament' : 'Tratamiento') + '</small><span>' + data.treatmentLabel + '</span></div>' +
+        '<div class="gc-line"><small>' + (lang === 'ca' ? 'Per a' : 'Para') + '</small><span>' + recipient + '</span></div>' +
         (data.treatmentDescription ? '<p class="gc-desc">' + data.treatmentDescription + '</p>' : '') +
-        '<div class="gc-to">' + (lang === 'ca' ? 'Per a' : 'Para') + '<strong>' + recipient + '</strong></div>' +
-        (data.message ? '<div class="gc-msg">“' + data.message + '”</div>' : '') +
+        (data.message ? '<p class="gc-msg">“' + data.message + '”</p>' : '') +
       '</div>' +
-      '<div class="gc-bottom">' +
-        '<div class="gc-code-box"><span class="gc-label">' + (lang === 'ca' ? 'Codi' : 'Código') + '</span><span class="gc-code">' + data.code + '</span></div>' +
-        '<span class="gc-centers"><strong>Alqvimia</strong> Carrer Vallcalent 33<br><strong>Nadia Elcacho</strong> Av. de Madrid 32 · Lleida</span>' +
+      '<div class="gc-footer">' +
+        '<div class="gc-validity">' +
+          (lang === 'ca'
+            ? 'Aquest val té una validesa de 4 mesos. Per allargar-la 2 mesos més, cal abonar préviament 15€.'
+            : 'Este vale tiene una validez de 4 meses. Para ampliarla 2 meses más, es imprescindible abonar previamente 15€.') +
+        '</div>' +
+        '<div class="gc-code-social"><strong>' + data.code + '</strong><br>@alqvimia_lleida · @nadia_elcacho_estetica</div>' +
       '</div>';
     document.getElementById('gift-card-render').innerHTML = html;
     var resultEl = document.getElementById('gift-result');

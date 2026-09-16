@@ -30,31 +30,31 @@
 .gift-note{font-size:.85rem;color:var(--ink-faint);margin-top:18px;line-height:1.6}
 
 /* ---------- tarjeta imprimible ---------- */
-.gift-card-render{position:relative;min-height:280px;max-width:600px;margin-inline:auto;border-radius:18px;background:var(--cream);border:1.5px solid var(--gold-deep);padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:16px;box-shadow:var(--shadow-2);text-align:left}
+.gift-card-render{position:relative;min-height:340px;max-width:760px;margin-inline:auto;border-radius:18px;background:var(--cream);border:1.5px solid var(--gold-deep);padding:clamp(24px,4vw,44px);display:grid;grid-template-columns:1fr 1.35fr;column-gap:clamp(20px,4vw,48px);row-gap:22px;box-shadow:var(--shadow-2);text-align:left;align-content:space-between}
 .gift-card-render::before{content:'';position:absolute;inset:9px;border:1px solid var(--gold-light);border-radius:11px;pointer-events:none}
-.gift-card-render::after{content:'✦';position:absolute;top:22px;right:24px;color:var(--gold-light);font-size:1.4rem}
-.gift-card-render .gc-top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:14px;gap:12px}
-.gift-card-render .gc-brand{font-family:var(--serif);font-size:1.1rem;color:var(--ink);white-space:nowrap}
-.gift-card-render .gc-kicker{font-size:.66rem;text-transform:uppercase;letter-spacing:.16em;color:var(--gold-deep);font-weight:600}
-.gift-card-render .gc-label{font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint)}
-.gift-card-render .gc-value{font-family:var(--serif);font-size:clamp(1.3rem,3.4vw,1.7rem);color:var(--ink);margin-top:2px}
-.gift-card-render .gc-amount{font-family:var(--serif);font-size:clamp(1.7rem,4.6vw,2.4rem);color:var(--gold-deep);line-height:1.1}
-.gift-card-render .gc-desc{font-size:.82rem;color:var(--ink-soft);line-height:1.6;margin-top:10px;max-width:52ch}
-.gift-card-render .gc-mid{margin:auto 0;padding-block:14px}
-.gift-card-render .gc-to{font-size:.82rem;color:var(--ink-soft);margin-top:14px}
-.gift-card-render .gc-to strong{font-family:var(--serif);color:var(--ink);font-size:1.15rem;margin-left:6px}
-.gift-card-render .gc-msg{font-size:.86rem;color:var(--ink-soft);font-style:italic;margin-top:8px;line-height:1.6}
-.gift-card-render .gc-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-top:1px dashed var(--line);padding-top:14px}
-.gift-card-render .gc-code-box{border:1px dashed var(--gold-deep);border-radius:8px;padding:6px 14px}
-.gift-card-render .gc-code{display:block;font-family:var(--serif);letter-spacing:.05em;font-size:1.05rem;color:var(--ink)}
-.gift-card-render .gc-centers{font-size:.72rem;color:var(--ink-faint);text-align:right;line-height:1.5}
-.gift-card-render .gc-centers strong{color:var(--ink-soft)}
+
+.gift-card-render .gc-brand-block{display:flex;flex-direction:column;gap:2px}
+.gift-card-render .gc-logo{font-family:var(--serif);font-size:1.25rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep)}
+.gift-card-render .gc-logo-sub{font-size:.6rem;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-faint);margin-top:2px}
+.gift-card-render .gc-contact{font-size:.72rem;color:var(--ink-soft);margin-top:14px;line-height:1.9}
+
+.gift-card-render .gc-vale{min-width:0}
+.gift-card-render .gc-vale-valid{font-size:.62rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-deep);font-weight:600}
+.gift-card-render .gc-vale-title{font-family:'Alex Brush',cursive;font-size:clamp(2rem,5.5vw,3rem);color:var(--gold-deep);line-height:1;margin-top:2px}
+.gift-card-render .gc-line{border-bottom:1px solid var(--line);padding-bottom:7px;margin-top:16px}
+.gift-card-render .gc-line small{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-faint);margin-bottom:2px}
+.gift-card-render .gc-line span{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
+.gift-card-render .gc-desc{font-size:.78rem;color:var(--ink-soft);line-height:1.65;margin-top:14px;max-width:56ch}
+.gift-card-render .gc-msg{font-size:.8rem;color:var(--ink-soft);font-style:italic;margin-top:8px;line-height:1.6}
+
+.gift-card-render .gc-footer{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;border-top:1px dashed var(--line);padding-top:14px}
+.gift-card-render .gc-validity{font-size:.66rem;color:var(--ink-faint);line-height:1.6;max-width:38ch}
+.gift-card-render .gc-code-social{text-align:right;font-size:.7rem;color:var(--ink-faint);line-height:1.6}
+.gift-card-render .gc-code-social strong{font-family:var(--serif);color:var(--ink-soft);letter-spacing:.04em}
 
 @media print{
   @page{size:A4 landscape;margin:16mm}
   body *{visibility:hidden}
   .gift-card-render, .gift-card-render *{visibility:visible}
-  .gift-card-render{position:fixed;inset:16mm;margin:0;box-shadow:none;width:auto;max-width:none;height:auto;min-height:0;justify-content:center;gap:clamp(16px,3vh,32px)}
-  .gift-card-render .gc-mid{margin:0}
-  .gift-card-render::after{color:var(--gold)}
+  .gift-card-render{position:fixed;inset:16mm;margin:0;box-shadow:none;width:auto;max-width:none;height:auto;min-height:0}
 }
