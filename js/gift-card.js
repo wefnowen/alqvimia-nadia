@@ -243,20 +243,22 @@
     document.querySelector('.gift-progress').style.display = 'none';
     var euros = (data.amountCents/100).toFixed(2).replace('.00','');
     var recipient = data.recipientName || (lang === 'ca' ? 'Per a tu' : 'Para ti');
+    var conj = lang === 'ca' ? 'i' : 'y';
     var html =
       '<div class="gc-top">' +
-        '<span class="gc-brand">Alqvimia · Nadia Elcacho</span>' +
-        '<div style="text-align:right"><span class="gc-label">' + (lang === 'ca' ? 'Vàlida a' : 'Válida en') + '</span><br><strong>' + CENTER_LABEL[data.center] + '</strong></div>' +
+        '<span class="gc-brand">Alqvimia ' + conj + ' Nadia Elcacho</span>' +
+        '<span class="gc-kicker">' + (lang === 'ca' ? 'Targeta regal' : 'Tarjeta regalo') + '</span>' +
       '</div>' +
       '<div class="gc-mid">' +
-        '<span class="gc-label">' + (lang === 'ca' ? 'Targeta regal' : 'Tarjeta regalo') + '</span>' +
-        '<div class="gc-value">' + data.treatmentLabel + ' · ' + euros + '€</div>' +
+        '<span class="gc-label">' + (lang === 'ca' ? 'Vàlida a' : 'Válida en') + ' ' + CENTER_LABEL[data.center] + '</span>' +
+        '<div class="gc-value">' + data.treatmentLabel + '</div>' +
+        '<div class="gc-amount">' + euros + '€</div>' +
         '<div class="gc-to">' + (lang === 'ca' ? 'Per a' : 'Para') + '<strong>' + recipient + '</strong></div>' +
         (data.message ? '<div class="gc-msg">“' + data.message + '”</div>' : '') +
       '</div>' +
       '<div class="gc-bottom">' +
-        '<span class="gc-code">' + data.code + '</span>' +
-        '<span class="gc-centers">Carrer Vallcalent 33 · Av. de Madrid 32<br>Lleida</span>' +
+        '<div class="gc-code-box"><span class="gc-label">' + (lang === 'ca' ? 'Codi' : 'Código') + '</span><span class="gc-code">' + data.code + '</span></div>' +
+        '<span class="gc-centers"><strong>Alqvimia</strong> Carrer Vallcalent 33<br><strong>Nadia Elcacho</strong> Av. de Madrid 32 · Lleida</span>' +
       '</div>';
     document.getElementById('gift-card-render').innerHTML = html;
     var resultEl = document.getElementById('gift-result');
