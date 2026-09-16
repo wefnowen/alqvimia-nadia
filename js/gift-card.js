@@ -279,6 +279,8 @@
     var recipient = data.recipientName || (lang === 'ca' ? 'Per a tu' : 'Para ti');
     var brand = CENTER_INFO[data.center] || CENTER_INFO.alqvimia;
     var valePor = lang === 'ca' ? 'Val per' : 'Vale por';
+    var isCustomLabel = data.treatmentLabel === 'Importe personalizado' || data.treatmentLabel === 'Import personalitzat';
+    var treatmentText = data.treatmentLabel + (isCustomLabel ? ' · ' + (data.amountCents/100).toFixed(2).replace('.00','') + '€' : '');
     var html =
       '<div class="gc-brand-block">' +
         '<span class="gc-logo">' + brand.logo + '</span>' +
@@ -288,7 +290,7 @@
       '<div class="gc-vale">' +
         '<span class="gc-vale-valid">' + (lang === 'ca' ? 'Vàlid a ' : 'Válido en ') + CENTER_LABEL[data.center] + '</span>' +
         '<div class="gc-vale-title">' + valePor + '</div>' +
-        '<div class="gc-line"><small>' + (lang === 'ca' ? 'Tractament' : 'Tratamiento') + '</small><span>' + data.treatmentLabel + '</span></div>' +
+        '<div class="gc-line"><small>' + (lang === 'ca' ? 'Tractament' : 'Tratamiento') + '</small><span>' + treatmentText + '</span></div>' +
         '<div class="gc-line"><small>' + (lang === 'ca' ? 'Per a' : 'Para') + '</small><span>' + recipient + '</span></div>' +
         (data.treatmentDescription ? '<p class="gc-desc">' + data.treatmentDescription + '</p>' : '') +
         (data.message ? '<p class="gc-msg">“' + data.message + '”</p>' : '') +
