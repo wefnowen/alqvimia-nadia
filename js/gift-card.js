@@ -9,7 +9,7 @@
 
   var giftStep = 1;
   var TOTAL_STEPS = 4;
-  var giftAnswers = { centro:null, treatmentLabel:null, treatmentDescription:'', amountCents:null, isCustom:false };
+  var giftAnswers = { centro:null, treatmentLabel:null, amountCents:null, isCustom:false };
 
   var form = document.getElementById('gift-form');
   if(!form) return; // página de regalo no presente en esta build
@@ -58,27 +58,6 @@
       if(items.length) groups.push({ category: catName, items: items });
     });
     return groups;
-  }
-
-  /* ---------- descripción del protocolo, buscada en la página de Servicios ---------- */
-  function normalizeName(s){
-    return (s || '').replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g,' ').trim().toLowerCase();
-  }
-  function getTreatmentDescription(center, treatmentName){
-    var panel = document.getElementById('servicios-panel-' + center);
-    if(!panel) return '';
-    var lang = App.currentLang();
-    var target = normalizeName(treatmentName);
-    var found = '';
-    panel.querySelectorAll('.svc-desc-item').forEach(function(item){
-      if(found) return;
-      var name = rowText(item, '.sdi-head h5', lang);
-      if(normalizeName(name) === target){
-        var p = item.querySelector('p.i18n-' + lang) || item.querySelector('p');
-        if(p) found = i18nText(p, lang);
-      }
-    });
-    return found.length > 420 ? found.slice(0, 417).trim() + '…' : found;
   }
 
   var select = document.getElementById('gift-treatment-select');
@@ -176,13 +155,11 @@
         giftAnswers.isCustom = true;
         giftAnswers.amountCents = Math.round(parseFloat(amountInput.value) * 100);
         giftAnswers.treatmentLabel = App.currentLang() === 'ca' ? 'Import personalitzat' : 'Importe personalizado';
-        giftAnswers.treatmentDescription = '';
       } else {
         var opt = select.selectedOptions[0];
         giftAnswers.isCustom = false;
         giftAnswers.amountCents = Number(opt.dataset.cents);
         giftAnswers.treatmentLabel = opt.dataset.name;
-        giftAnswers.treatmentDescription = getTreatmentDescription(giftAnswers.centro, giftAnswers.treatmentLabel);
       }
       renderSummary();
     }
@@ -216,7 +193,6 @@
     var payload = {
       center: giftAnswers.centro,
       treatmentLabel: giftAnswers.treatmentLabel,
-      treatmentDescription: giftAnswers.treatmentDescription,
       amountCents: giftAnswers.amountCents,
       buyerName: document.getElementById('gift-buyer-name').value.trim(),
       buyerEmail: document.getElementById('gift-buyer-email').value.trim(),
@@ -292,7 +268,6 @@
         '<div class="gc-vale-title">' + valePor + '</div>' +
         '<div class="gc-line"><small>' + (lang === 'ca' ? 'Tractament' : 'Tratamiento') + '</small><span>' + treatmentText + '</span></div>' +
         '<div class="gc-line"><small>' + (lang === 'ca' ? 'Per a' : 'Para') + '</small><span>' + recipient + '</span></div>' +
-        (data.treatmentDescription ? '<p class="gc-desc">' + data.treatmentDescription + '</p>' : '') +
         (data.message ? '<p class="gc-msg">“' + data.message + '”</p>' : '') +
       '</div>' +
       '<div class="gc-footer">' +

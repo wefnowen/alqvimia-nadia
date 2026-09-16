@@ -44,7 +44,6 @@
 .gift-card-render .gc-line{border-bottom:1px solid var(--line);padding-bottom:7px;margin-top:16px}
 .gift-card-render .gc-line small{display:block;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-faint);margin-bottom:2px}
 .gift-card-render .gc-line span{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
-.gift-card-render .gc-desc{font-size:.78rem;color:var(--ink-soft);line-height:1.65;margin-top:14px;max-width:56ch}
 .gift-card-render .gc-msg{font-size:.8rem;color:var(--ink-soft);font-style:italic;margin-top:8px;line-height:1.6}
 
 .gift-card-render .gc-footer{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;border-top:1px dashed var(--line);padding-top:14px}
