@@ -29,6 +29,7 @@ exports.handler = async function (event) {
       paid: true,
       center: meta.center,
       treatmentLabel: meta.treatmentLabel,
+      treatmentDescription: meta.treatmentDescription,
       amountCents: session.amount_total,
       buyerName: meta.buyerName,
       recipientName: meta.recipientName,

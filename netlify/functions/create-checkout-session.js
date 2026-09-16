@@ -22,6 +22,7 @@ exports.handler = async function (event) {
   var center = data.center === 'nadia' ? 'nadia' : 'alqvimia';
   var amountCents = Math.round(Number(data.amountCents));
   var treatmentLabel = String(data.treatmentLabel || '').slice(0, 200);
+  var treatmentDescription = String(data.treatmentDescription || '').trim().slice(0, 480);
   var buyerName = String(data.buyerName || '').trim().slice(0, 200);
   var buyerEmail = String(data.buyerEmail || '').trim().slice(0, 200);
   var recipientName = String(data.recipientName || '').trim().slice(0, 200);
@@ -48,6 +49,7 @@ exports.handler = async function (event) {
   params.append('line_items[0][price_data][product_data][name]', 'Tarjeta regalo · ' + treatmentLabel);
   params.append('metadata[center]', center);
   params.append('metadata[treatmentLabel]', treatmentLabel);
+  params.append('metadata[treatmentDescription]', treatmentDescription);
   params.append('metadata[buyerName]', buyerName);
   params.append('metadata[recipientName]', recipientName);
   params.append('metadata[message]', message);
