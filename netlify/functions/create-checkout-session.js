@@ -40,8 +40,7 @@ exports.handler = async function (event) {
   var params = new URLSearchParams();
   params.append('mode', 'payment');
   params.append('payment_method_types[0]', 'card');
-  params.append('payment_method_types[1]', 'bizum');
-  params.append('payment_method_types[2]', 'klarna');
+  params.append('payment_method_types[1]', 'klarna');
   params.append('success_url', siteUrl + '/index.html?gift_session={CHECKOUT_SESSION_ID}#regalo');
   params.append('cancel_url', siteUrl + '/index.html#regalo');
   params.append('customer_email', buyerEmail);
