@@ -289,6 +289,13 @@
     var resultEl = document.getElementById('gift-result');
     resultEl.classList.add('active');
     resultEl.scrollIntoView({behavior:'smooth', block:'start'});
+
+    document.getElementById('gift-request-center-btn').onclick = function(){
+      var text = lang === 'ca'
+        ? 'Hola! He comprat una targeta regal (codi ' + data.code + ') i m’agradaria recollir-la ja impresa al centre.'
+        : 'Hola! He comprado una tarjeta regalo (código ' + data.code + ') y me gustaría recogerla ya impresa en el centro.';
+      App.openWhatsapp(data.center, null, text);
+    };
   }
 
   document.getElementById('gift-download-btn').addEventListener('click', function(){
