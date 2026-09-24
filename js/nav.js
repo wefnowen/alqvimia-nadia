@@ -5,7 +5,7 @@ window.App = window.App || {};
 /* ================= PAGE NAVIGATION ================= */
 /* Depende de: App.htmlEl (lang.js), App.closeMobileMenu (mobile-menu.js) */
 (function(){
-  var PAGES = ['inicio','servicios','precios','profesionales','asesor','opiniones','regalo','contacto'];
+  var PAGES = ['inicio','servicios','precios','profesionales','asesor','opiniones','regalo','contacto','aviso-legal','privacidad','cookies','condiciones'];
   function goToPage(id, opts){
     opts = opts || {};
     if(PAGES.indexOf(id) === -1) id = 'inicio';

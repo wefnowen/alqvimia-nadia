@@ -6,7 +6,10 @@ footer{background:var(--ink);color:#D8CDBA;padding-block:56px 28px}
 .foot-col h5{color:#fff;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;font-weight:600}
 .foot-col a, .foot-col p{display:block;font-size:.86rem;margin-bottom:10px;color:#C9BEA9;transition:color .3s}
 .foot-col a:hover{color:#fff}
-.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.78rem;color:#9C917E}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;padding-top:22px;font-size:.78rem;color:#9C917E}
+.foot-legal{display:flex;flex-wrap:wrap;gap:4px 18px}
+.foot-legal button{font-size:.78rem;color:#9C917E;transition:color .3s}
+.foot-legal button:hover{color:#fff}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:980px){
