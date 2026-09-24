@@ -1,0 +1,10 @@
+/* ============ PÁGINAS LEGALES ============ */
+.legal-body{max-width:760px}
+.legal-body h2{font-family:var(--serif);font-size:1.2rem;font-weight:500;margin:34px 0 12px;color:var(--ink)}
+.legal-body h2:first-child{margin-top:0}
+.legal-body p{font-size:.94rem;color:var(--ink-soft);line-height:1.8;margin-bottom:14px}
+.legal-body ul{margin:0 0 14px;display:grid;gap:8px}
+.legal-body li{font-size:.94rem;color:var(--ink-soft);line-height:1.7;padding-left:22px;position:relative}
+.legal-body li::before{content:'✦';color:var(--gold);position:absolute;left:0;top:.35em;font-size:.72rem}
+.legal-body strong{color:var(--ink);font-weight:500}
+.legal-body a{color:var(--gold-deep);text-decoration:underline;text-underline-offset:2px}
