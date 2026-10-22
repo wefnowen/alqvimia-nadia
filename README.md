@@ -46,7 +46,7 @@ img/
   hero-inicio.jpg      Imagen de fondo del hero de Inicio.
   equipo-grupo.jpg     Foto grande del equipo en la sección "Sobre nosotros".
   equipo-alqvimia.jpg  Foto pequeña del equipo en Alqvimia, superpuesta en "Sobre nosotros".
-  equipo-nadia.jpg     Foto de Nadia Elcacho en la tarjeta del equipo (Profesionales).
+  equipo-nadia.jpg, equipo-sandra.jpg, equipo-sara.jpg, equipo-agnes.jpg  Fotos del equipo en las tarjetas de Profesionales.
 video/
   diagnostico-piel.mp4 Vídeo del analizador de piel, junto al bloque de diagnóstico gratuito.
 netlify/functions/
