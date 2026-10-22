@@ -44,7 +44,9 @@ js/
   gift-card.js       Asistente de la tarjeta regalo: pasos, lectura de precios reales desde la página Precios, llamada a Stripe y render de la tarjeta descargable.
 img/
   hero-inicio.jpg      Imagen de fondo del hero de Inicio.
-  sobre-nosotros.jpg   Foto de la sección "Sobre nosotros".
+  equipo-grupo.jpg     Foto grande del equipo en la sección "Sobre nosotros".
+  equipo-alqvimia.jpg  Foto pequeña del equipo en Alqvimia, superpuesta en "Sobre nosotros".
+  equipo-nadia.jpg     Foto de Nadia Elcacho en la tarjeta del equipo (Profesionales).
 video/
   diagnostico-piel.mp4 Vídeo del analizador de piel, junto al bloque de diagnóstico gratuito.
 netlify/functions/

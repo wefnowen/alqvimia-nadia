@@ -1,8 +1,9 @@
 /* ---------- about / intro ---------- */
 .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,90px);align-items:center}
-.about-photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-2);aspect-ratio:4/5}
-.about-photo img{width:100%;height:100%;object-fit:cover}
-.about-badge{position:absolute;left:-18px;bottom:26px;background:var(--white);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow-2);max-width:230px}
+.about-photo{position:relative;margin-bottom:46px}
+.about-main{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%;border-radius:18px;box-shadow:var(--shadow-2)}
+.about-inset{position:absolute;right:-14px;bottom:-46px;width:44%;height:auto;aspect-ratio:3/2;object-fit:cover;border:5px solid var(--white);border-radius:16px;box-shadow:var(--shadow-2)}
+.about-badge{position:absolute;left:-18px;bottom:-26px;background:var(--white);border-radius:14px;padding:18px 22px;box-shadow:var(--shadow-2);max-width:230px}
 .about-badge strong{font-family:var(--serif);font-size:1.6rem;color:var(--gold-deep);display:block}
 .about-badge span{font-size:.78rem;color:var(--ink-soft)}
 .about-copy p{margin-top:16px}
@@ -19,5 +20,9 @@
 /* ============ RESPONSIVE ============ */
 @media (max-width:980px){
   .about-grid{grid-template-columns:1fr}
-  .about-photo{max-width:420px;margin-inline:auto}
+  .about-photo{max-width:560px;margin-inline:auto}
+}
+@media (max-width:560px){
+  .about-badge{left:12px;padding:14px 16px;max-width:180px}
+  .about-inset{right:12px;width:42%}
 }
