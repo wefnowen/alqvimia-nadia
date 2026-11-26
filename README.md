@@ -51,7 +51,10 @@ video/
   diagnostico-piel.mp4 Vídeo del analizador de piel, junto al bloque de diagnóstico gratuito.
 netlify/functions/
   create-checkout-session.js  Crea la sesión de pago de Stripe Checkout para la tarjeta regalo.
-  verify-gift-session.js      Verifica contra Stripe que el pago se completó antes de mostrar la tarjeta descargable.
+  verify-gift-session.js      Verifica contra Stripe que el pago se completó antes de mostrar la tarjeta descargable y avisa por email al centro de la venta (una sola vez).
+  request-gift-pickup.js      Tras pagar, la clienta pide recoger la tarjeta impresa: envía al centro un email "RECOGER EN CENTRO".
+netlify/lib/
+  gift-email.js               Utilidades compartidas: lectura/marcado de la sesión de Stripe y envío de emails con Resend.
 netlify.toml         Configuración de despliegue (carpeta publicada = raíz del proyecto, funciones = netlify/functions).
 ```
 

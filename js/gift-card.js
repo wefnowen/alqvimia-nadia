@@ -248,6 +248,12 @@
     }
   };
 
+  function esc(s){
+    return String(s || '').replace(/[&<>"']/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
   function renderGiftCard(data){
     var lang = App.currentLang();
     document.querySelector('.gift-wrap > form').style.display = 'none';
@@ -256,7 +262,7 @@
     var brand = CENTER_INFO[data.center] || CENTER_INFO.alqvimia;
     var valePor = lang === 'ca' ? 'Val per' : 'Vale por';
     var isCustomLabel = data.treatmentLabel === 'Importe personalizado' || data.treatmentLabel === 'Import personalitzat';
-    var treatmentText = data.treatmentLabel + (isCustomLabel ? ' · ' + (data.amountCents/100).toFixed(2).replace('.00','') + '€' : '');
+    var treatmentText = esc(data.treatmentLabel) + (isCustomLabel ? ' · ' + (data.amountCents/100).toFixed(2).replace('.00','') + '€' : '');
     var html =
       '<div class="gc-brand-block">' +
         '<span class="gc-logo">' + brand.logo + '</span>' +
@@ -267,8 +273,8 @@
         '<span class="gc-vale-valid">' + (lang === 'ca' ? 'Vàlid a ' : 'Válido en ') + CENTER_LABEL[data.center] + '</span>' +
         '<div class="gc-vale-title">' + valePor + '</div>' +
         '<div class="gc-line"><small>' + (lang === 'ca' ? 'Tractament' : 'Tratamiento') + '</small><span>' + treatmentText + '</span></div>' +
-        '<div class="gc-line"><small>' + (lang === 'ca' ? 'Per a' : 'Para') + '</small><span>' + recipient + '</span></div>' +
-        (data.message ? '<p class="gc-msg">“' + data.message + '”</p>' : '') +
+        '<div class="gc-line"><small>' + (lang === 'ca' ? 'Per a' : 'Para') + '</small><span>' + esc(recipient) + '</span></div>' +
+        (data.message ? '<p class="gc-msg">“' + esc(data.message) + '”</p>' : '') +
       '</div>' +
       '<div class="gc-footer">' +
         '<div class="gc-validity">' +
@@ -276,18 +282,32 @@
             ? 'Aquest val té una validesa de 4 mesos. Per allargar-la 2 mesos més, cal abonar préviament 15€.'
             : 'Este vale tiene una validez de 4 meses. Para ampliarla 2 meses más, es imprescindible abonar previamente 15€.') +
         '</div>' +
-        '<div class="gc-code-social"><strong>' + data.code + '</strong><br>@alqvimia_lleida · @nadia_elcacho_estetica</div>' +
+        '<div class="gc-code-social"><strong>' + esc(data.code) + '</strong><br>@alqvimia_lleida · @nadia_elcacho_estetica</div>' +
       '</div>';
     document.getElementById('gift-card-render').innerHTML = html;
     var resultEl = document.getElementById('gift-result');
     resultEl.classList.add('active');
     resultEl.scrollIntoView({behavior:'smooth', block:'start'});
 
-    document.getElementById('gift-request-center-btn').onclick = function(){
-      var text = lang === 'ca'
-        ? 'Hola! He comprat una targeta regal (codi ' + data.code + ') i m’agradaria recollir-la ja impresa al centre.'
-        : 'Hola! He comprado una tarjeta regalo (código ' + data.code + ') y me gustaría recogerla ya impresa en el centro.';
-      App.openWhatsapp(data.center, null, text);
+    var requestBtn = document.getElementById('gift-request-center-btn');
+    var requestStatus = document.getElementById('gift-request-status');
+    requestBtn.onclick = function(){
+      requestBtn.disabled = true;
+      fetch('/.netlify/functions/request-gift-pickup?session_id=' + encodeURIComponent(sessionId), { method: 'POST' })
+        .then(function(r){ return r.json(); })
+        .then(function(res){
+          if(!res || !res.ok) throw new Error('pickup');
+          requestStatus.textContent = lang === 'ca'
+            ? 'Fet! Hem avisat el centre i et tindrem la targeta impresa preparada. Només cal que diguis el codi ' + data.code + ' quan vinguis.'
+            : '¡Hecho! Hemos avisado al centro y te tendremos la tarjeta impresa preparada. Solo indica el código ' + data.code + ' cuando vengas.';
+        })
+        .catch(function(){
+          requestBtn.disabled = false;
+          var text = lang === 'ca'
+            ? 'Hola! He comprat una targeta regal (codi ' + data.code + ') i m’agradaria recollir-la ja impresa al centre.'
+            : 'Hola! He comprado una tarjeta regalo (código ' + data.code + ') y me gustaría recogerla ya impresa en el centro.';
+          App.openWhatsapp(data.center, null, text);
+        });
     };
   }
 
